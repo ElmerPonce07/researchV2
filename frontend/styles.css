@@ -1,0 +1,108 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    text-align: center;
+    color: #4A90E2;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #4A90E2;
+    font-size: 1.8em;
+    margin-top: 20px;
+}
+
+/* Input and Button Styles */
+input[type="text"] {
+    width: 80%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #4A90E2;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: #357ABD;
+    outline: none;
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #357ABD;
+    transform: scale(1.05);
+}
+
+/* Results Section */
+#results {
+    margin-top: 20px;
+}
+
+.result-link {
+    display: block;
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #4A90E2;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.result-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Summary and Translation Styles */
+#summary, #translatedSummary {
+    padding: 15px;
+    border: 1px solid #4A90E2;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Select Styles */
+select {
+    padding: 12px;
+    margin: 10px 0;
+    border: 2px solid #4A90E2;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+select:focus {
+    border-color: #357ABD;
+    outline: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    input[type="text"], button, select {
+        width: 100%;
+    }
+}

@@ -4,53 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article Summarizer</title>
-    <script>
-        async function searchArticles() {
-            const keyword = document.getElementById('keyword').value;
-            const response = await fetch('/search', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ keyword })
-            });
-            const data = await response.json();
-
-            const urlList = document.getElementById('urlList');
-            urlList.innerHTML = '';  // Clear old URLs
-
-            data.urls.forEach(url => {
-                const link = document.createElement('a');
-                link.href = "#";
-                link.innerText = url;
-                link.onclick = function() {
-                    summarizeArticle(url);
-                };
-                urlList.appendChild(link);
-                urlList.appendChild(document.createElement('br'));
-            });
-        }
-
-        async function summarizeArticle(url) {
-            const response = await fetch('/summarize', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ url })
-            });
-            const data = await response.json();
-
-            document.getElementById('summary').innerText = data.summary;
-        }
-    </script>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to the external CSS file -->
 </head>
 <body>
     <h1>Article Summarizer</h1>
-
     <input type="text" id="keyword" placeholder="Enter keyword">
-    <button onclick="searchArticles()">Search</button>
+    <button id="searchBtn">Search</button>
 
-    <h2>Search Results</h2>
-    <div id="urlList"></div>
+    <div id="results"></div>
 
     <h2>Summary</h2>
     <div id="summary"></div>
+
+    <h2>Translate Summary</h2>
+    <select id="languageSelect">
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+        <option value="de">German</option>
+        <option value="zh">Chinese (Simplified)</option> <!-- Added Chinese -->
+    </select>
+    <button id="translateBtn">Translate Summary</button>
+
+    <div id="translatedSummary"></div>
+
+    <script src="script.js"></script> <!-- Link to the external JavaScript file -->
 </body>
 </html>
