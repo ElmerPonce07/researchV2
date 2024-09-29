@@ -2,13 +2,14 @@ from flask import Flask, request, jsonify, send_from_directory
 import openai
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__, static_folder='../frontend', static_url_path='')
 
-# Replace with your OpenAI API key and SerpAPI key
-openai.api_key =  'sk-LU77YQa2CaldZtSAkmCtdqNYoPimNGJk1ghFQIe6gJT3BlbkFJK50s5w6-Rv4QEdXj6HXh9JH-nC_MXaM3RMswB3DW4A'
-
-SERPAPI_KEY = 'b380a2b7bc1a3586d23a9abe919e19ce1421b052b997643c1a011e10a5f6bb65'
+load_dotenv() 
+openai.api_key = os.getenv('OPENAI_API_KEY')
+SERPAPI_KEY = os.getenv('SERPAPI_KEY')
 
 @app.route('/')
 def index():
